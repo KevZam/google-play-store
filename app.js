@@ -28,7 +28,7 @@ app.get("/app", (req, res) => {
   }
 
   if (genre) {
-    //validate genre is one of our given genres
+    //validate genre is one of our genres
     if (
       genre != "Action" &&
       genre != "Puzzle" &&
