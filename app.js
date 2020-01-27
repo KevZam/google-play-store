@@ -11,16 +11,21 @@ app.get("/app", (req, res) => {
     res.json(playstore);
   }
 
-  function sortResults(results = playstore) {
+  function sortResults(results) {
+    results = playstore;
+
+    //capitalize first letter of each word to match object property
+    sort1 = sort.charAt(0).toUpperCase() + sort.substring(1);
+
     //make sure sort is == rating or app
-    if (sort != "rating" && sort != "app") {
+    if (sort1 != "Rating" && sort1 != "App") {
       res.status(400).send({ message: "sort option not found" });
     }
     //sort response object by value, we'll do this last
-    results.sort((a, b) => {
-      return a[sort] > b[sort] ? 1 : a[sort] < b[sort] ? -1 : 0;
+    let newresults = results.sort((a, b) => {
+      return a[sort1] > b[sort1] ? 1 : a[sort1] < b[sort1] ? -1 : 0;
     });
-    res.json(results);
+    res.json(newresults);
   }
 
   if (sort && !genre) {
