@@ -53,7 +53,7 @@ app.get("/app", (req, res) => {
       console.log(app.Genres.toLowerCase().includes(genre.toLowerCase()));
     });
     console.log("RESULTS:", results);
-    res.json(results);
+    // res.json(results);
     sort ? sortResults(results) : res.json(results);
   }
 });
