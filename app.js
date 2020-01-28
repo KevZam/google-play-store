@@ -6,7 +6,7 @@ const app = express();
 app.use(morgan("common"));
 
 app.get("/app", (req, res) => {
-  const { sort, genre } = req.query;
+  let { sort, genre } = req.query;
   if (!sort && !genre) {
     res.json(playstore);
   }
