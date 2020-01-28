@@ -11,9 +11,10 @@ app.get("/app", (req, res) => {
     res.json(playstore);
   }
 
+  // we set a default parameter here to account for line 30, otherwise we can pass a parameter to set it
   function sortResults(results = playstore) {
     //capitalize first letter of each word to match object property
-    // sort1 = sort.charAt(0).toUpperCase() + sort.substring(1);
+    sort = sort.charAt(0).toUpperCase() + sort.substring(1);
 
     //make sure sort is == rating or app
     if (sort != "Rating" && sort != "App") {
